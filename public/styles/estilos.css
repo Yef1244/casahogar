@@ -1,7 +1,45 @@
-.fondo {
+.fondo  {
     background-color: #07A1E1 !important;
 }
 
 .fuente {
     font-family: 'Amatic SC', cursive;
 }
+
+.titulo-icono {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo-icono h1 {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.parrafo-icono {
+    margin: auto;
+    width: 70%;
+    justify-content: center;
+    text-align: center;
+    font-size: 23px;
+    font-weight: 500;
+}
+
+.icono {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+}
+
+.zoom {
+    width: 90px;
+    padding: 5 5 5 5;
+}
+
+
+.zoom:hover {
+    width: 120px;
+}
+
