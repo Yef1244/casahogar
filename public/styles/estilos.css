@@ -6,6 +6,11 @@
     font-family: 'Amatic SC', cursive;
 }
 
+.fuente-bold {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+}
+
 .titulo-icono {
     width: 100%;
     display: flex;
@@ -34,12 +39,22 @@
 }
 
 .zoom {
-    width: 90px;
-    padding: 5 5 5 5;
+    width: 75px;
+    margin-left: 50px;
 }
-
 
 .zoom:hover {
-    width: 120px;
+    width: 85px;
 }
+
+
+/*-------   FORMULARIO   ---------*/
+.formulario {
+    margin-left: 10px;
+}
+
+.display-flex {
+    display: flex;
+}
+
 
