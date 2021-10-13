@@ -37,6 +37,21 @@ class Validation
         'single' => 'CodeIgniter\Validation\Views\single',
     ];
 
+    public $producto=[
+        'producto'=>'required',
+        'foto'=>'required',
+        'precio'=>'required',
+        'descripcion'=>'required',
+        'tipo'=>'required'
+    ];
+
+    public $animales=[
+        'nombre'=>'required',
+        'edad'=>'required',
+        'descripcion'=>'required',
+        'tipoAnimal'=>'required'
+    ];
+
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------

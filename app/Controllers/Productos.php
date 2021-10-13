@@ -9,7 +9,7 @@ class Productos extends BaseController
         return view('registroProductos');
     }
 
-    public function registrar(){
+    public function registrarProductos(){
         
         //1. Recibo todos los datos enviados desde el formulario (vista)
         //Lo que tengo entre getPost("") es el name que puse en cada dato del formulario
@@ -19,7 +19,24 @@ class Productos extends BaseController
         $descripcion=$this->request->getPost("descripcion");
         $tipo=$this->request->getPost("tipo");
 
-        //2. Crear un arreglo asociativo con los datos del punto 1
+        //2. Valido que llegó
+
+        if($this->validate('producto')){
+
+            $mensaje=("Se registro el producto correctamente");
+            return redirect()->to(site_url('/productos/registro'))->with('mensaje',$mensaje);
+
+        }else{
+
+            $mensaje="No puedes dejar campos sin llenar";
+            return redirect()->to(site_url('/productos/registro'))->with('mensaje',$mensaje);
+
+            //echo("Tienes datos pendientes");
+
+        }
+        
+
+        //3. Crear un arreglo asociativo con los datos del punto 1
         $datos=array(
 
             "producto"=>$producto,
@@ -31,6 +48,7 @@ class Productos extends BaseController
         );
 
         print_r($datos);
+        
 
     }
 }
