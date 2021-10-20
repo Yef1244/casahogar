@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-10-2021 a las 17:06:43
+-- Tiempo de generación: 20-10-2021 a las 16:47:06
 -- Versión del servidor: 10.4.8-MariaDB
 -- Versión de PHP: 7.3.11
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `animales` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `foto` varchar(100) NOT NULL,
+  `foto` varchar(200) NOT NULL,
   `edad` int(11) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
   `tipoAnimal` int(11) NOT NULL
@@ -46,7 +46,7 @@ CREATE TABLE `animales` (
 CREATE TABLE `productos` (
   `id` int(11) NOT NULL,
   `producto` varchar(50) NOT NULL,
-  `foto` varchar(100) NOT NULL,
+  `foto` varchar(200) NOT NULL,
   `precio` int(11) NOT NULL,
   `descripcion` varchar(200) NOT NULL,
   `tipo` int(11) NOT NULL
@@ -76,13 +76,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `animales`
 --
 ALTER TABLE `animales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
