@@ -73,6 +73,7 @@
             </form>
             <!-- <img src="<?= base_url("public/img/animales.jpg")?>" alt=""> -->
         </div>
+        <a href="<?= site_url('/animales/listado')?>">Ver inventario</a>
 
         <section>
             <?php if(session('mensaje')):?>

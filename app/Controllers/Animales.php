@@ -61,4 +61,35 @@ class Animales extends BaseController
         print_r($datos);
 
     }
+
+    public function buscarAnimales(){
+        try{
+
+            $modelo=new AnimalModelo();
+            $resultado=$modelo->findAll();
+            $animales=array('animales'=>$resultado);
+            return view('listaAnimales',$animales);
+
+        }catch(\Exception $error){
+
+            return redirect()->to(site_url('/animales/registro'))->with('mensaje',$error->getMessage());
+
+        }
+    }
+
+    public function eliminar($id){
+
+        try{
+
+            $modelo=new AnimalModelo();
+            $modelo->where('id',$id)->delete();
+            return redirect()->to(site_url('/animales/registro'))->with('mensaje',"Exito al eliminar el animal");
+
+        }catch(\Exception $error){
+
+            return redirect()->to(site_url('/animales/registro'))->with('mensaje',$error->getMessage());
+
+        }
+
+    }
 }

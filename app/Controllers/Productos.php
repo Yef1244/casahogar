@@ -63,4 +63,36 @@ class Productos extends BaseController
         
 
     }
+
+    public function buscarProductos(){
+        try{
+
+            $modelo=new ProductoModelo();
+            $resultado=$modelo->findAll();
+            $productos=array('productos'=>$resultado);
+            return view('listaProductos',$productos);
+
+        }catch(\Exception $error){
+
+            return redirect()->to(site_url('/productos/registro'))->with('mensaje',$error->getMessage());
+
+        }
+        
+    }
+
+    public function eliminar($id){
+
+        try{
+
+            $modelo=new ProductoModelo();
+            $modelo->where('id',$id)->delete();
+            return redirect()->to(site_url('/productos/registro'))->with('mensaje',"Exito al eliminar el producto");
+
+        }catch(\Exception $error){
+
+            return redirect()->to(site_url('/productos/registro'))->with('mensaje',$error->getMessage());
+
+        }
+
+    }
 }
