@@ -40,40 +40,59 @@
         </div>
         </nav>
     </header>
+    <main>
+        <div class="container mb-5">
+             <div class="row mt-5 d-flex justify-content-center">
+                <div class="col-12 col-md-5">
+                    <h3 class="fuente fw-bold text-center">Registro de productos</h3>
+                    
+                    <form action="<?= site_url('/productos/registro/nuevo') ?>" method="POST" class="mt-4">
+                        <div class="mb-3">
+                            <label class="form-label">Producto:</label>
+                            <input type="text" class="form-control" name="producto">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fotografía:</label>
+                            <input type="text" class="form-control" name="foto">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Precio Unidad:</label>
+                            <input type="number" class="form-control" name="precio">
+                        </div>
 
-        <div class="container mt-5"> 
-            <h1 class="fuente-bold">Registro de productos</h1>   
-            <form action="<?= site_url("/productos/registro/nuevo")?>" method="POST" class="mt-4">
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Producto:</label>
-                    <input type="text" class="form-control" name="producto">
+                        <div class="mb-3">
+
+                            <div class="form-floating">
+                                <textarea class="form-control" placeholder="Descripcion" name="descripcion" style="height: 100px"></textarea>
+                                <label for="floatingTextarea">Descripción</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Tipo de animal:</label>
+                            <select class="form-select" name="tipo">
+                                <option value="1" selected>Perro</option>
+                                <option value="2">Gato</option>
+                                <option value="3">Ave</option>
+                                <option value="4">Caballo</option>
+                                <option value="5">Reptil</option>
+                            </select>
+                        </div>
+                        
+                    <div class="d-grid gap-2">
+                            <button class="btn btn-primary" type="submit">Registrar Producto</button>
+                        </div>
+                        
+                    </form>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Fotografía:</label>
-                    <input type="text" class="form-control" name="foto">
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Precio Unidad:</label>
-                    <input type="number" class="form-control" name="precio">
-                </div>
-                <div class="mb-3">
-                    <textarea id="" cols="90" rows="6" placeholder="Descripción" name="descripcion"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Tipo de animal:</label>
-                    <select class="form-select" name="tipo">
-                        <option value="1" selected>Perro</option>
-                        <option value="2">Gato</option>
-                        <option value="3">Ave</option>
-                        <option value="4">caballo</option>
-                        <option value="5">Reptil</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Button</button>
-            </form>
-            <!-- <img src="<?= base_url("public/img/productos.jpg")?>" alt=""> -->
+                <div class="col-12 col-md-5 align-self-end text-center">
+                    <img src="<?= base_url('public/img/animales.jpg')?>" alt="imagen" class="img-fluid w-100">
+					<a href="<?= site_url('/productos/listado') ?>" class="btn btn-primary">ver inventario</a>
+				</div>
+            </div>
         </div>
-        <a href="<?= site_url('/productos/listado')?>">Ver inventario</a>
+       
+    </main>
 
         <section>
             <?php if(session('mensaje')):?>
@@ -95,6 +114,43 @@
 
             <?php endif ?>       
         </section>
+
+        <footer class="fondo-footer p-5">
+
+<div class="container-fluid">
+
+<div class="row">
+    <div class="col-12 col-md-4">
+        <h3 class="fw-bold">Horario de atención:</h3>
+        <p>Lunes a viernes 7:00 am - 3:00 pm / Sábado: 7:00 am - 2:30 pm / Domingos y festivos 8:00 am - 3:00 pm</p>
+        <br>
+        <h3 class="fw-bold">Dirección:</h3>
+        <p>Belén Altavista Calle 8A # 112-82 </p>
+    </div>
+
+    <div class="col-12 col-md-4">
+        <h3 class="fw-bold">Ayudas:</h3>
+        <p>Glosario / Correo remoto  /  Monitoreo y desempeño de uso del sitio web</p>
+        <br>
+        <h3 class="fw-bold">Protección de datos:</h3>
+        <p>Protección de datos personales en el Municipio de Medellín </p>
+    </div>
+
+    <div class="col-12 col-md-4">
+        <h1 class="fw-bold fuente"><span><i class="fas fa-paw"></i></span>ANIMALANDIA</h1>
+        <br>
+        <i class="fab fa-facebook fa-3x"></i>
+        <i class="fab fa-instagram fa-3x"></i>
+        <i class="fab fa-youtube fa-3x"></i>
+        <br>
+        <p class="mt-4">© 2021 / NIT: 890905211-1 / Código DANE: 05001 / Código Postal: 050015</p>
+        
+    </div>
+</div>
+
+</div>
+
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>	
 <script src="https://kit.fontawesome.com/08b4b5fab5.js" crossorigin="anonymous"></script>

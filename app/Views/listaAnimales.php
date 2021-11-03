@@ -40,16 +40,17 @@
         <div class="container">
             <div class="row row-cols-1 row-cols-md-5 g-4">
                 <?php foreach($animales as $animal): ?>
+                    <?php if($animal['tipoAnimal']==2):?>
                     <div class="col">
                         <div class="card">
                             <h5 class="card-title"><?= $animal['nombre'] ?></h5>
-                            <img src="<?= $animal['foto'] ?>" class="card-img-top" alt="foto">
+                            <img src="<?= $animal['foto'] ?>" class="card-img-top h-100 w-100" alt="foto">
                                 <div class="card-body">
                                     <p class="card-text"><?= $animal['edad'] ?></p>
                                     <p class="card-text"><?= $animalo['tipoAnimal'] ?></p>
                                     <p class="card-text"><?= $animalo['descripcion'] ?></p>
                                     <a data-bs-toggle="modal" data-bs-target="#confirmacion<?= $animal['id'] ?>" href="#" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
-                                    <a href="#" class="btn btn-primary"><i class="far fa-edit"></i></a>
+                                    <a data-bs-toggle="modal" data-bs-target="#editar<?= $animal['id'] ?>" href="#" class="btn btn-primary"><i class="far fa-edit"></i></a>
                                 </div>
                         </div>
                         <section>
@@ -72,7 +73,41 @@
                         </div>
 
                         </section>
+
+                        <section>
+                            <div class="modal fade" id="editar<?= $animal['id'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header fondo text-white">
+                                    <h5 class="modal-title" id="exampleModalLabel text-align">Modal title</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-3 align-self-center">
+                                            <img src="<?= $animal['foto'] ?>" alt="" class="img-fluid w-100">
+                                        </div>
+                                        <div class="col-9">
+                                            <form action="<?= site_url('/animales/editar/'.$animal['id']) ?>" method="POST">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Nombre</label>
+                                                    <input type="text" class="form-control" name="nombre" value="<?= $animal['nombre'] ?>">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Edad</label>
+                                                    <input type="number" class="form-control" name="edad" value="<?= $animal['edad'] ?>">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Editar</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        </section>
                     </div>
+                    <?php  endif ?>
                 <?php endforeach ?>
             </div>
         </div>

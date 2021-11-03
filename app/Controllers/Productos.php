@@ -59,7 +59,6 @@ class Productos extends BaseController
 
         }
         
-        print_r($datos);
         
 
     }
@@ -95,4 +94,49 @@ class Productos extends BaseController
         }
 
     }
+
+    public function editar($id){
+
+        //Recibo datos
+        $producto=$this->request->getPost("producto");
+        $precio=$this->request->getPost("precio");
+        $descripcion=$this->request->getPost("descripcion");
+
+        //Validación de datos
+        if($this->validate('producto2')){
+
+            //3.Se organizan los datos en un array
+            //los naranjados (claves) deben coincidir
+            //con el nombre de las columnas de la BD
+            $datos=array(
+
+                "producto"=>$producto,
+                "precio"=>$precio,
+                "descripcion"=>$descripcion
+    
+            );
+
+            //4.Intentamos grabar los datos en BD
+            try{
+
+                $modelo=new ProductoModelo();
+                $modelo->update($id,$datos);
+                return redirect()->to(site_url('/productos/registro'))->with('mensaje',"Exito al editar el producto");
+    
+            }catch(\Exception $error){
+    
+                return redirect()->to(site_url('/productos/registro'))->with('mensaje',$error->getMessage());
+    
+            }
+
+        }else{
+
+            $mensaje="No puedes dejar campos sin llenar";
+            return redirect()->to(site_url('/productos/registro'))->with('mensaje',$mensaje);
+
+        }
+        //Organizo los datos en un array asociativo
+
+    }
+
 }

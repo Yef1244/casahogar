@@ -45,6 +45,12 @@ class Validation
         'tipo'=>'required'
     ];
 
+    public $producto2=[
+        'producto'=>'required',
+        'precio'=>'required',
+        'descripcion'=>'required',
+    ];
+
     public $animales=[
         'nombre'=>'required',
         'edad'=>'required',

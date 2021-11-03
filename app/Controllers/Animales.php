@@ -92,4 +92,47 @@ class Animales extends BaseController
         }
 
     }
+
+    public function editar($id){
+
+        //Recibo datos
+        $nombre=$this->request->getPost("nombre");
+        $edad=$this->request->getPost("edad");
+
+        //Validación de datos
+
+        //Organizo los datos en un array asociativo
+        $datos=array(
+            'nombre'=>$nombre,
+            'edad'=>$edad
+        );
+
+        try{
+
+            $modelo=new AnimalModelo();
+            $modelo->update($id,$datos);
+            return redirect()->to(site_url('/animales/registro'))->with('mensaje',"Exito al editar el animal");
+
+        }catch(\Exception $error){
+
+            return redirect()->to(site_url('/animales/registro'))->with('mensaje',$error->getMessage());
+
+        }
+
+    }
+
+    public function buscarAnimal($tipoAnimal){
+        try{
+
+            $modelo=new AnimalModelo();
+            $resultado=$modelo->findAll($tipoAnimal);
+            $animales=array('animales'=>$resultado);
+            return view('listaAnimales',$animales);
+
+        }catch(\Exception $error){
+
+            return redirect()->to(site_url('/animales/registro'))->with('mensaje',$error->getMessage());
+
+        }
+    }
 }
